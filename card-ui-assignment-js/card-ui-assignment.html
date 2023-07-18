@@ -6,28 +6,29 @@
     <title>card-ui</title>
 
     <style>
-
-        #container{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
       .card {
         height: 200px;
         width: 200px;
         border: 1px solid black;
         border-radius: 4px;
-        background-color: blue;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
       }
 
-      .red{
+      .red {
         background-color: red;
       }
-      
+
+      .blue {
+        background-color: blue;
+      }
     </style>
   </head>
   <body>
@@ -38,7 +39,9 @@
 <script>
   let numbers = [
     10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100,
-    105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185];
+    105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175,
+    180, 185,
+  ];
 
   const containerElement = document.getElementById("container"); //containerElement has <div id="container"></div>
 
@@ -46,9 +49,11 @@
     const card = document.createElement("div");
 
     card.innerHTML = numbers[i];
-    card.className = "card";
-    if(numbers[i] % 2 === 0){
-        card.setAttribute('class', 'card red') /* using .className we are adding classes to card div we can use .setAttribute('class', 'card blue')  */
+
+    if (numbers[i] % 2 === 0) {
+      card.classList = "card red";
+    } else {
+      card.classList = "card blue";
     }
     containerElement.appendChild(card);
   }
